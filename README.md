@@ -4,7 +4,7 @@
 
   2:进行项目配置
 
-  * ![image-20220727142436004](..\images\image-20220727142436004.png)
+  * ![image-20220727142436004](https://github.com/woaixiaobo/vue3-ts-pinia-vite-qiankun/tree/main/images/image-20220727142436004.png)
 * 3: 执行 npm i 下载npm包
 * 4：执行 npm run dev 启动项目
 
