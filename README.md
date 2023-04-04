@@ -3,6 +3,7 @@
 * 1:运行指令: npm init vite@latest 此时已经到了vite3版本，项目搭建时为2  npm init vite@2
 
   2:进行项目配置
+
   * ![image-20220727142436004](https://github.com/woaixiaobo/vue3-ts-pinia-vite-qiankun/blob/main/Screenshots/image-20220727142436004.png)
 
 * 3: 执行 npm i 下载npm包
@@ -15,32 +16,32 @@
 * 1：安装EsLint  ==npm i -D eslint==
 * 2：初始化配置EsLint  ==npx eslint --init==
   * 2.1 选择模式： To check syntax, find problems, and enforce code style 严格模式
-    * ![image-20220727161145656](Screenshots\image-20220727161145656.png)
+    * ![image-20220727161145656](https://github.com/woaixiaobo/vue3-ts-pinia-vite-qiankun/blob/main/Screenshots/image-20220727161145656.png)
   * 2.2 选择语言模块：选择javascript
-    * ![image-20220727161156448](Screenshots\image-20220727161156448.png)
+    * ![image-20220727161156448](https://github.com/woaixiaobo/vue3-ts-pinia-vite-qiankun/blob/main/Screenshots/image-20220727161156448.png)
   * 2.3 选择语言框架 选择vue.js
-    * ![image-20220727161210674](Screenshots\image-20220727161210674.png)
+    * ![image-20220727161210674](https://github.com/woaixiaobo/vue3-ts-pinia-vite-qiankun/blob/main/Screenshots/image-20220727161210674.png)
   * 2.4 是否使用ts，视自己情况而定，之前创建时选择 yes，现在选择No
   * 新版选择yes后会==影响==2.7步骤的选择 ,所以现在==建议不选择==
-    * ![image-20220727161226472](Screenshots\image-20220727161226472.png)
+    * ![image-20220727161226472](https://github.com/woaixiaobo/vue3-ts-pinia-vite-qiankun/blob/main/Screenshots/image-20220727161226472.png)
   * 2.5  代码在哪里运行 使用空格键全选 浏览器+node
-    * ![image-20220727161241103](Screenshots\image-20220727161241103.png)
+    * ![image-20220727161241103](https://github.com/woaixiaobo/vue3-ts-pinia-vite-qiankun/blob/main/Screenshots/image-20220727161241103.png)
   * 2.6 选择一个风格：选择流行的即可
-    * ![image-20220727160857672](Screenshots\image-20220727160857672.png)
+    * ![image-20220727160857672](https://github.com/woaixiaobo/vue3-ts-pinia-vite-qiankun/blob/main/Screenshots/image-20220727160857672.png)
   * 2.7 你想遵循哪一种风格指南? 选择 Standard 我一直用的这个社区指南，感觉很好。认可度也高
   * ==注意之前选项有4个==
-    * ![image-20220727160924401](Screenshots\image-20220727160924401.png)
+    * ![image-20220727160924401](https://github.com/woaixiaobo/vue3-ts-pinia-vite-qiankun/blob/main/Screenshots/image-20220727160924401.png)
   * 现在只有==两个==，而且同是Standard 下载地址已经变了（==新的版本==，携带了typescript）
   * 若之前不选择ts，则还是之前的四个
-  * ![image-20221228190549535](Screenshots\image-20221228190549535.png)
+  * ![image-20221228190549535](https://github.com/woaixiaobo/vue3-ts-pinia-vite-qiankun/blob/main/Screenshots/image-20221228190549535.png)
   * 2.8 您希望的配置文件是什么格式? 选择js即可
-    * ![image-20220727161003219](Screenshots\image-20220727161003219.png)
+    * ![image-20220727161003219](https://github.com/woaixiaobo/vue3-ts-pinia-vite-qiankun/blob/main/Screenshots/image-20220727161003219.png)
   * 2.9 可能会出现下面的提示，选择yes即可
-    * ![image-20220727161028879](Screenshots\image-20220727161028879.png)
+    * ![image-20220727161028879](https://github.com/woaixiaobo/vue3-ts-pinia-vite-qiankun/blob/main/Screenshots/image-20220727161028879.png)
   * 2.10 会问你是用npm安装还是yarn安装，这里选择的npm(yes)
     * 
 
-![image-20220727161039571](Screenshots\image-20220727161039571.png)
+![image-20220727161039571](https://github.com/woaixiaobo/vue3-ts-pinia-vite-qiankun/blob/main/Screenshots/image-20220727161039571.png)
 
 * 3、 安装完成会出现.eslintrc.js文件
 
@@ -375,7 +376,7 @@ VITE_CHILDONE_URL = 'http://10.30.150.13001'
 
 ### 2、在src下创建 router 文件夹（包含index.ts文件与moudles文件夹）
 
-![image-20220810175026777](Screenshots\image-20220810175026777.png)
+![image-20220810175026777](https://github.com/woaixiaobo/vue3-ts-pinia-vite-qiankun/blob/main/Screenshots/image-20220810175026777.png)
 
 ### 3、在index.ts文件中引入vue-router
 
@@ -1135,4 +1136,4 @@ export default function () {
   const { currentPage, pageSize, total, handleSizeChange, handleCurrentChange } = usePaginHandle()
   ```
 
-  ![image-20220818144519950](Screenshots\image-20220818144519950.png)
+  ![image-20220818144519950](https://github.com/woaixiaobo/vue3-ts-pinia-vite-qiankun/blob/main/Screenshots/image-20220818144519950.png)
