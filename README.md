@@ -75,6 +75,8 @@
 > ==若 eslint 初始化时选择了typescript则需要在 extends中进行修改==
 >
 > 将 ==standard-with-typescript== 改为 ==standard== ， 否则会影响vite-plugin-eslint 插件的使用
+>
+> > 会提示配置eslint中的project选项，但是此选项会引发其他的错误，不采用
 
 
 
@@ -188,6 +190,8 @@ export default defineConfig({
 
 ### 3、配置打包
 
+#### 3.1、分包策略
+
 ```javascript
 export default defineConfig({
   build: {
@@ -227,12 +231,41 @@ export default defineConfig({
 
 ```
 
+#### 3.2、开启gzip压缩
+
+> 需要注意的是，Gzip 压缩仅对于文本类型的资源有明显提示，压缩后的体积大约是压缩前的 1/3。对于图片，[音视频](https://so.csdn.net/so/search?q=音视频&spm=1001.2101.3001.7020)等媒体资源，本身就采用了有损压缩，所以再使用 gzip 并不能得到很大提升，有时候反而会适得其反
+>
+> js，css资源，非常适合使用 gzip 进行压缩。这样，用户浏览器收到服务器返回的 gzip 类型资源时，会自动解压缩。这样，既能减少带宽的损耗，也能加快资源传输的时间
+
+* 下载插件 npm i vite-plugin-compression -D
+
+```javascript
+import compressPlugin from 'vite-plugin-compression'
+compressPlugin({
+    algorithm: 'gzip',
+    deleteOriginFile: true, // 删除原文件
+    ext: '.gz'
+})
+```
+
+* 插件其他配置
+  * filter：过滤器，对哪些类型的文件进行压缩，默认为 ‘/.(js|mjs|json|css|html)$/i’
+  * verbose: true：是否在控制台输出压缩结果，默认为 true
+  * threshold：启用压缩的文件大小限制，单位是字节，默认为 0
+  * disable: false：是否禁用压缩，默认为 false
+  * deleteOriginFile：压缩后是否删除原文件，默认为 false
+  * algorithm：采用的压缩算法，默认是 gzip
+  * ext：生成的压缩包后缀
+
+![image-20230408105628810](Screenshots/image-20230408105628810.png)
+
 ### 4、完整的vite.config配置文件
 
 ```javascript
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import eslintPlugin from 'vite-plugin-eslint'
+import compressPlugin from 'vite-plugin-compression'
 import { resolve } from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -240,6 +273,11 @@ export default defineConfig({
     vue(),
     eslintPlugin({
       include: ['src/**/*.js', 'src/**/*.ts', 'src/**/*.vue', 'src/*.js', 'src/*.ts', 'src/*.vue']
+    }),
+    compressPlugin({
+        algorithm: 'gzip',
+        deleteOriginFile: true, // 删除原文件
+        ext: '.gz'
     })
   ],
   // 配置别名，vite默认是没有别名配置的
@@ -257,8 +295,6 @@ export default defineConfig({
     }
   },
   build: {
-    sourcemap: false, // 关闭映射文件，减小打包体积
-    minify: 'terser', // 混淆器，terser构建后文件体积更小
     // chunkSizeWarningLimit: 1500, // 打包单个文件体积大小 默认为500kb
     terserOptions: {
       compress: {
